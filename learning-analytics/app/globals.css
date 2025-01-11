@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    /* More vibrant primary colors */
+    --primary: 250 95% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 280 95% 65%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 330 95% 65%;
+    --accent-foreground: 210 40% 98%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 250 95% 60%;
+    --radius: 1rem;
+
+    /* Vibrant chart colors */
+    --chart-1: 250 95% 60%;
+    --chart-2: 330 95% 65%;
+    --chart-3: 160 95% 45%;
+    --chart-4: 45 95% 60%;
+    --chart-5: 195 95% 55%;
+    
+    /* Playful satisfaction colors */
+    --color-very-satisfied: hsl(160, 95%, 45%);
+    --color-satisfied: hsl(195, 95%, 55%);
+    --color-neutral: hsl(45, 95%, 60%);
+    --color-dissatisfied: hsl(0, 95%, 65%);
+
+    /* Status colors */
+    --success: 160 95% 45%;
+    --warning: 45 95% 60%;
+    --error: 0 95% 65%;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Vibrant dark mode colors */
+    --primary: 250 90% 65%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 280 90% 70%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 330 90% 70%;
+    --accent-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 250 90% 65%;
+
+    /* Vibrant dark mode chart colors */
+    --chart-1: 250 90% 65%;
+    --chart-2: 330 90% 70%;
+    --chart-3: 160 90% 50%;
+    --chart-4: 45 90% 65%;
+    --chart-5: 195 90% 60%;
+    
+    /* Vibrant dark mode satisfaction colors */
+    --color-very-satisfied: hsl(160, 90%, 50%);
+    --color-satisfied: hsl(195, 90%, 60%);
+    --color-neutral: hsl(45, 90%, 65%);
+    --color-dissatisfied: hsl(0, 90%, 70%);
+
+    /* Status colors - dark mode */
+    --success: 160 90% 50%;
+    --warning: 45 90% 65%;
+    --error: 0 90% 70%;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent animate-gradient;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .bounce-hover {
+    @apply transition-transform duration-200;
+  }
+
+  .bounce-hover:hover {
+    transform: scale(1.05);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer components {
+  .hero-card {
+    @apply relative overflow-hidden rounded-2xl border bg-card p-6 shadow-lg transition-all hover:shadow-xl bounce-hover;
+    background: radial-gradient(
+      circle at top right,
+      hsl(var(--accent)/0.15),
+      hsl(var(--background))
+    );
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at top left,
+      hsl(var(--primary)/0.15),
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
