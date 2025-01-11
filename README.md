@@ -26,6 +26,10 @@ Backend: Node.js, Express.js.
 
 
 **Links**:
+
+deploy app:
 https://ifqfc3qdm25lrvpy.vercel.app/courses
 use dark mode for better user experience
+youtube:https://youtu.be/EiApJZgwtsY
+
 
